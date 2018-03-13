@@ -40,40 +40,46 @@ eGuard provides a practical solution to this issue. Although there are many medi
 
 ### User Stories
 
-1. As a user, in face of an emergency, I want to send an alert message to my emergency contacts to get immediate help
+**User Story 1**
+* As a user, in face of an emergency, I want to send an alert message to my emergency contacts to get immediate help.
 
 **Acceptance Criteria**
-  *  When a person has fallen, the application should detect the fall and check if it falls in the danger range
-  *  If the application has detected a fall, an alert message should be sent to emergency contacts
+* When a person has fallen, the application should detect the fall and check if it falls in the danger range.
+* If the application has detected a fall, an alert message should be sent to emergency contacts.
 
-2. As a user, in need of immediate help, I want the device to make a call to my emergency contact
-
-**Acceptance Criteria**
-  * When a person pushes a button on the MetaWear device, a call should be made to the emergency contact
-
-3. As a user, I want to receive reminders on the MetaWear device so that I can remember to take my medicine or prescription
+**User Story 2**  
+* As a user, in need of immediate help, I want the device to make a call to my emergency contact.
 
 **Acceptance Criteria**
-  * LEDs on the MetaWear device should blink at a stipulated time to serve as a reminder for the user.
+* When a person pushes a button on the MetaWear device, a call should be made to the emergency contact
+
+**User Story 3**
+* As a user, I want to receive reminders on the MetaWear device so that I can remember to take my medicine or prescription.
+
+**Acceptance Criteria**
+* LEDs on the MetaWear device should blink at a stipulated time to serve as a reminder for the user.
 
 
 ### Misuser Stories
 
-1. As a misuser, I want to launch a denial of service attack on the MetaWear device which would limit or eliminate the device connectivity and availability
+**Misuser Story 1**  
+* As a misuser, I want to launch a denial of service attack on the MetaWear device which would limit or eliminate the device connectivity and availability.
 
 **Mitigations**
-  * Bluetooth should be configured to be undiscoverable by default and connect to only authorized devices through pairing
-  * The BLE on the MetaWear device should be set to power levels only necessary to connect within a permissible perimeter of the location of the wearer.
+* Bluetooth should be configured to be undiscoverable by default and connect to only authorized devices through pairing.
+* The BLE on the MetaWear device should be set to power levels only necessary to connect within a permissible perimeter of the location of the wearer.
 
-2. As a misuser, I want to eavesdrop or steal information so that I can launch a man in the middle attack, and steal or corrupt user data, which could lead to false alarms
+**Misuser Story 2**  
+* As a misuser, I want to eavesdrop or steal information so that I can launch a man in the middle attack, and steal or corrupt user data, which could lead to false alarms.
 
 **Mitigations**
-  * Use a secure form of data transmission such as end to end encryption
-  * Make sure the device is not easily discoverable and connected in only secure home networks
+* Use a secure form of data transmission such as end to end encryption.
+* Make sure the device is not easily discoverable and connected in only secure home networks.
 
 ## High Level Design
 
 **Architecture Diagram**
+
 ![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/eGuard-ArchitectureDiagram.png)
 
 ## Component List
@@ -95,6 +101,7 @@ eGuard provides a practical solution to this issue. Although there are many medi
 ## Security Analysis
 The high level architecture diagram depicts the eGuard application connecting with the MetaWear device through the MetaWear API. In this process, the application will continuously poll for data and request information from the MetaWear device. Due to connection to the external network, there is a risk of data being stolen or lost, if proper security measures are not taken while developing the application.
 
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/eGuard-ArchitectureDiagram.png)
 
 | Component name | Category of vulnerability | Issue Description | Mitigation |
 |----------------|---------------------------|-------------------|------------|
