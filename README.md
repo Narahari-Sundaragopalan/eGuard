@@ -87,6 +87,8 @@ eGuard provides a practical solution to this issue. Although there are many medi
     Android application running on a mobile phone. It has the ability to search and connect to MetaWear device. It can read data sent from the device and take corrective action based on the data.
 #### SearchDevice
      This component will search for an available MetaWear device within the permissible range and makes connection with the device.
+#### ProcessData
+     This service will collect the incoming data and process it to check for any emergency case, if it has to send an alert message in case the value of accelerometer data falls in the danger category
 #### ContactLookUp
      This component will search for contacts such as marked emergency contacts based on user preferences from the phone.
 #### SendAlert
