@@ -6,31 +6,31 @@
 
 ### Case 1 - User goes from a sitting position to a standing position
 
-![Tooltip for visually disabled](./graphs/Case1.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case1.png)
 
 ### Case 2.1 - User goes from a standing position to a sitting position (and falls back on the couch)
 
-![Tooltip for visually disabled](./graphs/Case2-1.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case2-1.png)
 
 ### Case 2.2 - User goes from a standing position to a sitting position (on the ground)
 
-![Tooltip for visually disabled](./graphs/Case2-2.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case2-2.png)
 
 ### Case 3 - User goes from a standing position to walking
 
-![Tooltip for visually disabled](./graphs/Case3.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case3.png)
 
 ### Case 4 - User goes from walking to standing position
 
-![Tooltip for visually disabled](./graphs/Case4.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case4.png)
 
 ### Case 5 - User goes from a sitting position to sleeping position
 
-![Tooltip for visually disabled](./graphs/Case5.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case5.png)
 
 ### Case 6 - User goes from a sleeping position to sitting position
 
-![Tooltip for visually disabled](./graphs/Case6.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case6.png)
 
 ### Case 7 - User falls while walking
 
