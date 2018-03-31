@@ -54,10 +54,10 @@ eGuard provides a practical solution to this issue. Although there are many medi
 * When a person pushes a button on the MetaWear device, a call should be made to the emergency contact
 
 **User Story 3**
-* As a user, I want to receive reminders on the MetaWear device so that I can remember to take my medicine or prescription.
+* As a user, I want to be able detect different movement patterns of a user such as sitting, standing, lying down
 
 **Acceptance Criteria**
-* LEDs on the MetaWear device should blink at a stipulated time to serve as a reminder for the user.
+* Metawear device should understand these normal movements and not raise false positive alarms for every sudden change in movement.
 
 
 ### Misuser Stories
