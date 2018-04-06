@@ -4,6 +4,9 @@
 
 > In order to determine a fall and differentiate it with normal movements, a few scenarios were considered and data sample was collected using the Accelerometer on the MetaWear device. Each case has a pattern plotted for the X, Y and Z axes of the accelerometer. The cases with their graphs are shown below
 
+### State Diagram
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/EGuard_State_Diagram.png)
+
 ### Case 1 - User goes from a sitting position to a standing position
 
 ![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case1.png)
