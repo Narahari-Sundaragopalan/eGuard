@@ -2,39 +2,95 @@
 
 > In order to understand and calculate threshold values, so that the device can continuously listen to movements of an individual and judge what kind of movements are normal and differentiate them when an individual actually falls. This will ensure there are not too many false positives and the alarm is raised only for appropriate cases.
 
-> In order to determine a fall and differentiate it with normal movements, a few scenarios were considered and data sample was collected using the Accelerometer on the MetaWear device. Each case has a pattern plotted for the X, Y and Z axes of the accelerometer. The cases with their graphs are shown below
+> In order to determine a fall and differentiate it with normal movements, a few scenarios were considered and data sample was collected using the Accelerometer on the MetaWear device. Each case has a pattern plotted for the X, Y and Z axes of the accelerometer. The different scenarios with their graphs are shown below
+
+| Transition  | Transition Type | Threshold Value |
+|----------------|---------------------------|-------------------|
+| T12 | Standing to Walking | 0 |
+| T13 | Standing to Sitting(Straight) | 0 |
+| T14 | Standing to Sitting(Fallback) | 0 |
+| T17 | Standing to Fall | 0 |
+| T21 | Walking to Standing | 0 |
+| T27 | Walking to Fall | 0 |
+| T31 | Sitting(Straight) to Standing | 0 |
+| T34 | Sitting(Straight) to Sitting(Fallback) | 0 |
+| T35 | Sitting(Straight) to Lie Down(Straight) | 0 |
+| T36 | Sitting(Straight) to Lie Down(Sideways) | 0 |
+| T37 | Sitting(Straight) to Fall | 0 |
+| T43 | Sitting(Fallback) to Sitting(Straight) | 0 |
+| T45 | Sitting(Fallback) to Lie Down(Straight) | 0 |
+| T46 | Sitting(Fallback) to Lie Down(Sideways) | 0 |
+| T47 | Sitting(Fallback) to Fall | 0 |
+| T53 | Lie Down(Straight) to Sitting(Straight) | 0 |
+| T56 | Lie Down(Straight) to Lie Down(Sideways) | 0 |
+| T63 | Lie Down(Sideways) to Sitting(Straight) | 0 |
+| T65 | Lie Down(Sideways) to Lie Down(Straight) | 0 |
 
 ### State Diagram
-![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/EGuard_State_Diagram.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/eGuard-State-Transition-Diagram.png)
 
-### Case 1 - User goes from a sitting position to a standing position
+### Transition - T12
 
-![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case1.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T12.png)
 
-### Case 2.1 - User goes from a standing position to a sitting position (and falls back on the couch)
+### Transition - T13
 
-![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case2-1.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T13.png)
 
-### Case 2.2 - User goes from a standing position to a sitting position (on the ground)
+### Transition - T14
 
-![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case2-2.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T14.png)
 
-### Case 3 - User goes from a standing position to walking
+### Transition - T17
 
-![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case3.png)
 
-### Case 4 - User goes from walking to standing position
+### Transition - T21
 
-![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case4.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T21.png)
 
-### Case 5 - User goes from a sitting position to sleeping position
+### Transition - T27
 
-![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case5.png)
 
-### Case 6 - User goes from a sleeping position to sitting position
+### Transition - T31
 
-![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/Case6.png)
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T31.png)
 
-### Case 7 - User falls while walking
+### Transition - T34
 
-### Case 8 - User falls while standing
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T34.png)
+
+### Transition - T35
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T35.png)
+
+### Transition - T36
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T36.png)
+
+### Transition - T37
+
+### Transition - T43
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T43.png)
+
+### Transition - T45
+
+### Transition - T46
+
+### Transition - T47
+
+### Transition - T53
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T53.png)
+
+### Transition - T56
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T56.png)
+
+### Transition - T63
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T63.png)
+
+### Transition - T65
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T65.png)
