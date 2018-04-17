@@ -1,3 +1,5 @@
+// eGuard Application to detect fall and raise alerts in case of emergencies
+
 package eguard.android.hari.com.myapplication;
 
 import android.app.Activity;
@@ -105,6 +107,9 @@ public class MainActivity extends Activity implements ServiceConnection {
 
     }
 
+    //
+    // Data is monitored and processed as part of this function and threshold value is checked
+    //
     // Function will connect to the MetaWear device
     public void retrieveBoard(final String macAddr) {
         final BluetoothManager btManager=

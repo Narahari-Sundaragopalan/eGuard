@@ -41,23 +41,22 @@ eGuard provides a practical solution to this issue. Although there are many medi
 ### User Stories
 
 **User Story 1**
-* As a user, in face of an emergency, I want to send an alert message to my emergency contacts to get immediate help.
+* As a user, I want to detect the different user movements of a user during the course of a day, such as Sitting (Straight & Fallback), Standing, Sleeping (Straight & Sideways)
 
 **Acceptance Criteria**
-* When a person has fallen, the application should detect the fall and check if it falls in the danger range.
-* If the application has detected a fall, an alert message should be sent to emergency contacts.
+* When a person is walking, standing or sleeping, the application should monitor these normal movements continuously
 
 **User Story 2**  
-* As a user, in need of immediate help, I want the device to make a call to my emergency contact.
+* As a user, I want to be able detect transitions in movement patterns of a user such as from Sitting to Standing; Standing to Walking; Sitting to Sleeping; etc.
 
 **Acceptance Criteria**
-* When a person pushes a button on the MetaWear device, a call should be made to the emergency contact
+* When a person makes a transition from type of movement to another, the application should monitor and check for the change in acceleration of the user continuously, and differentiate between normal transitions and fall transitions
 
 **User Story 3**
-* As a user, I want to be able detect different movement patterns of a user such as sitting, standing, lying down
+* As a user, I want to know if the user's transition indicates a fall and the application should make an emergency alert.
 
 **Acceptance Criteria**
-* Metawear device should understand these normal movements and not raise false positive alarms for every sudden change in movement.
+* Application should monitor the user acceleration and correctly indicate, if the user has fallen, based on sudden increase in acceleration by checking a threshold value
 
 
 ### Misuser Stories
