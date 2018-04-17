@@ -137,7 +137,7 @@ public class MainActivity extends Activity implements ServiceConnection {
                 return accelerometer.acceleration().addRouteAsync(new RouteBuilder() {
                     @Override
                     public void configure(RouteComponent source) {
-                        source.map(Function1.RSS).average((byte) 4).filter(ThresholdOutput.BINARY, 2.5f)
+                        source.map(Function1.RSS).average((byte) 4).filter(ThresholdOutput.BINARY, 0.4f)
                                 .multicast()
                                 .to().filter(Comparison.EQ, -1).stream(new Subscriber() {
                             @Override
