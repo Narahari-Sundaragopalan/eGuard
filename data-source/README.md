@@ -8,35 +8,36 @@
 
 The magnitude of acceleration is calculated by taking the square root of the sum of the squares of the value in each of the axes of the accelerometer.
 ```
-Acceleration = { Square Root of (X^2 + Y^2 +Z^2) }
+Acceleration = { Square Root of (X^2 + Y^2 +Z^2) } * g
 
   X - Reading in X-Axis of Accelerometer
   Y - Reading in Y-Axis of Accelerometer
   Z - Reading in Z-Axis of Accelerometer
+  g - Acceleration due to Gravity (9.81 m/s^2)
 ```
 
-| Transition  | Transition Type | Threshold Value (Change in Acceleration Magnitude during Transition (in terms of g)) |
+| Transition  | Transition Type | Threshold Value (Change in Acceleration Magnitude during Transition) |
 |----------------|---------------------------|-------------------|
-| T12 | Standing to Walking | 0.9 to 1.24 |
-| T13 | Standing to Sitting(Straight) | 0.92 to 1.17 |
-| T14 | Standing to Sitting(Fallback) | 0.92 to 1.18 |
-| T17 | Standing to Fall(Front) | 0.95 to 3.8 |
-| T17 | Standing to Fall(Back) | 0.95 to 2.2 |
-| T21 | Walking to Standing | 1.2 to 0.93 |
-| T27 | Walking to Fall | 1.1 to 4.5 |
-| T31 | Sitting(Straight) to Standing | 0.91 to 1.3 |
-| T34 | Sitting(Straight) to Sitting(Fallback) | 0.92 to 0.84 |
-| T35 | Sitting(Straight) to Lie Down(Straight) | 0.91 to 0.96 |
-| T36 | Sitting(Straight) to Lie Down(Sideways) | 0.92 to 2.2 |
+| T12 | Standing to Walking | 0.9g to 1.24g |
+| T13 | Standing to Sitting(Straight) | 0.92g to 1.17g |
+| T14 | Standing to Sitting(Fallback) | 0.92g to 1.18g |
+| T17 | Standing to Fall(Front) | 0.95g to 3.8g |
+| T17 | Standing to Fall(Back) | 0.95g to 2.2g |
+| T21 | Walking to Standing | 1.2g to 0.93g |
+| T27 | Walking to Fall | 1.1g to 4.5g |
+| T31 | Sitting(Straight) to Standing | 0.91g to 1.3g |
+| T34 | Sitting(Straight) to Sitting(Fallback) | 0.92g to 0.84g |
+| T35 | Sitting(Straight) to Lie Down(Straight) | 0.91g to 0.96g |
+| T36 | Sitting(Straight) to Lie Down(Sideways) | 0.92g to 2.2g |
 | T37 | Sitting(Straight) to Fall | 0 |
-| T43 | Sitting(Fallback) to Sitting(Straight) | 0.97 to 0.99 |
+| T43 | Sitting(Fallback) to Sitting(Straight) | 0.97g to 0.99g |
 | T45 | Sitting(Fallback) to Lie Down(Straight) | 0 |
 | T46 | Sitting(Fallback) to Lie Down(Sideways) | 0 |
 | T47 | Sitting(Fallback) to Fall | 0 |
-| T53 | Lie Down(Straight) to Sitting(Straight) | 0.99 to 1.09 |
-| T56 | Lie Down(Straight) to Lie Down(Sideways) | 0.98 to 1.89 |
-| T63 | Lie Down(Sideways) to Sitting(Straight) | 0.97 to 1.1 |
-| T65 | Lie Down(Sideways) to Lie Down(Straight) | 1 to 1.09 |
+| T53 | Lie Down(Straight) to Sitting(Straight) | 0.99g to 1.09g |
+| T56 | Lie Down(Straight) to Lie Down(Sideways) | 0.98g to 1.89g |
+| T63 | Lie Down(Sideways) to Sitting(Straight) | 0.97g to 1.1g |
+| T65 | Lie Down(Sideways) to Lie Down(Straight) | 1g to 1.09g |
 
 ### State Diagram
 ![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/eGuard-State-Transition-Diagram.png)
