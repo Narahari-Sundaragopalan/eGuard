@@ -55,6 +55,11 @@ Acceleration = { Square Root of (X^2 + Y^2 +Z^2) }
 
 ### Transition - T17
 
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T17.png)
+
+### Transition - T17 (Fall On Back)
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T17_B.png)
 
 ### Transition - T21
 
@@ -62,6 +67,7 @@ Acceleration = { Square Root of (X^2 + Y^2 +Z^2) }
 
 ### Transition - T27
 
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/data-source/graphs/T27.png)
 
 ### Transition - T31
 
