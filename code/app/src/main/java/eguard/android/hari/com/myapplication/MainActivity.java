@@ -30,9 +30,17 @@ import bolts.Continuation;
 import bolts.Task;
 
 public class MainActivity extends Activity implements ServiceConnection {
+
+    //connect app to Bluetooth Service
     private BtleService.LocalBinder serviceBinder;
+
+    // Device MAC Address
     private final String MW_MAC_ADDRESS = "D0:58:8E:AA:76:8D";
+
+    //MetaWear object to connect app and device
     private MetaWearBoard board;
+
+    // Object to start and stop collecting acceleration data
     Accelerometer accelerometer;
 
     @Override
@@ -43,6 +51,8 @@ public class MainActivity extends Activity implements ServiceConnection {
         getApplicationContext().bindService(new Intent(this, BtleService.class),
                 this, Context.BIND_AUTO_CREATE);
 
+        // Event Listener for Start Button
+        // When clicked, accelerometer will start monitoring the user acceleration
         findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +62,8 @@ public class MainActivity extends Activity implements ServiceConnection {
             }
         });
 
+        // Event Listener for Stop Button
+        // When clicked, accelerometer will stop monitoring the user acceleration
         findViewById(R.id.stop).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +72,7 @@ public class MainActivity extends Activity implements ServiceConnection {
                 accelerometer.acceleration().stop();
             }
         });
+        // Reset the data collection from metaWear device
         findViewById(R.id.reset).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,12 +89,15 @@ public class MainActivity extends Activity implements ServiceConnection {
         getApplicationContext().unbindService(this);
     }
 
+    // Once the App is up and running, it will try and connect to the board using its MAC address
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
         serviceBinder = (BtleService.LocalBinder) service;
 
         Log.i("eGuard", "Service Connected");
-        retrieveBoard("D0:58:8E:AA:76:8D");
+
+        // Connect to the MetaWear device using it's MAC address
+        retrieveBoard(MW_MAC_ADDRESS);
     }
 
     @Override
@@ -89,6 +105,7 @@ public class MainActivity extends Activity implements ServiceConnection {
 
     }
 
+    // Function will connect to the MetaWear device
     public void retrieveBoard(final String macAddr) {
         final BluetoothManager btManager=
                 (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
@@ -96,17 +113,22 @@ public class MainActivity extends Activity implements ServiceConnection {
                 btManager.getAdapter().getRemoteDevice(macAddr);
 
         // Create a MetaWear board object for the Bluetooth Device
-        board= serviceBinder.getMetaWearBoard(remoteDevice);
+        board = serviceBinder.getMetaWearBoard(remoteDevice);
+
+        // Make a connection to the MetaWear device
         board.connectAsync().onSuccessTask(new Continuation<Void, Task<Route>>() {
             @Override
             public Task<Route> then(Task<Void> task) throws Exception {
 
                 Log.i("eGuard", "Connected to " + macAddr);
 
-                accelerometer= board.getModule(Accelerometer.class);
+                // Configure the accelerometer object and stream data from MetaWear device
+                accelerometer = board.getModule(Accelerometer.class);
                 accelerometer.configure()
-                        .odr(12.5f)       // Set sampling frequency to 25Hz, or closest valid ODR
+                        .odr(12.5f)
                         .commit();
+
+                // Check the acceleration data if threshold value has been reached
                 return accelerometer.acceleration().addRouteAsync(new RouteBuilder() {
                     @Override
                     public void configure(RouteComponent source) {
@@ -114,14 +136,17 @@ public class MainActivity extends Activity implements ServiceConnection {
                                 .multicast()
                                 .to().filter(Comparison.EQ, -1).stream(new Subscriber() {
                             @Override
+                            // If the user acceleration has gone beyond the threshold, log a fall message
+                            // And raise an alert to send a message
                             public void apply(Data data, Object... env) {
-                                Log.i("eGuard", "in freefall");
+                                Log.i("eGuard", "There has been a fall");
                                 }
                             })
                                 .to().filter(Comparison.EQ, 1).stream(new Subscriber() {
                             @Override
+                            // If the user movement is normal, log
                             public void apply(Data data, Object... env) {
-                                Log.i("eGuard", "Not in freefall");
+                                Log.i("eGuard", "Normal user movement");
                                 }
                             })
                         .end();
@@ -130,6 +155,7 @@ public class MainActivity extends Activity implements ServiceConnection {
             }
         }).continueWith(new Continuation<Route, Void>() {
             @Override
+            // When the app has successfully connected to the MetaWear device, log a success message
             public Void then(Task<Route> task) throws Exception {
                 if(task.isFaulted()) {
                     Log.w("eGuard", "Failed to configure app ", task.getError());
