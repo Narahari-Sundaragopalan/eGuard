@@ -137,7 +137,7 @@ public class MainActivity extends Activity implements ServiceConnection {
                 // Configure the accelerometer object and stream data from MetaWear device
                 accelerometer = board.getModule(Accelerometer.class);
                 accelerometer.configure()
-                        .odr(12.5f)
+                        .odr(25f)
                         .commit();
 
                 /*
@@ -155,7 +155,13 @@ public class MainActivity extends Activity implements ServiceConnection {
                 return accelerometer.acceleration().addRouteAsync(new RouteBuilder() {
                     @Override
                     public void configure(RouteComponent source) {
-                        source.map(Function1.RSS).average((byte) 4).filter(ThresholdOutput.BINARY, 0.4f)
+                        source.stream(new Subscriber() {
+                            @Override
+                            public void apply(Data data, Object... env) {
+                                Log.i("eGuard", data.value(Acceleration.class).toString());
+                            }
+                        });
+                        source.map(Function1.RSS).average((byte) 4).filter(ThresholdOutput.BINARY, 3.5f)
                                 .multicast()
                                 .to().filter(Comparison.EQ, -1).stream(new Subscriber() {
                             @Override
