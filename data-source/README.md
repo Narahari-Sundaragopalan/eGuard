@@ -15,7 +15,7 @@ Acceleration = { Square Root of (X^2 + Y^2 +Z^2) }
   Z - Reading in Z-Axis of Accelerometer
 ```
 
-| Transition  | Transition Type | Threshold Value (Change in Acceleration Magnitude during Transition) |
+| Transition  | Transition Type | Threshold Value (Change in Acceleration Magnitude during Transition (in terms of g)) |
 |----------------|---------------------------|-------------------|
 | T12 | Standing to Walking | 0.9 to 1.24 |
 | T13 | Standing to Sitting(Straight) | 0.92 to 1.17 |
