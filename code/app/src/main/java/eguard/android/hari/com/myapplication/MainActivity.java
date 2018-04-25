@@ -42,7 +42,7 @@ public class MainActivity extends Activity implements ServiceConnection {
        to ensure simple connectivity for now
        TODO: Probably not a secure way to expose device MAC Address, change it and test for Bluetooth Scan
     */
-    private final String MW_MAC_ADDRESS = "D0:58:8E:AA:76:8D";
+    private final String MW_MAC_ADDRESS = "E5:7A:73:82:24:CE";
 
     //MetaWear object to connect app and device
     private MetaWearBoard board;
