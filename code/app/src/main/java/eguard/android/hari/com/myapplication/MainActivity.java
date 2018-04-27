@@ -40,7 +40,6 @@ public class MainActivity extends Activity implements ServiceConnection {
 
     /* Device MAC Address. As the bluetooth scan is weak and not reliable, passing the device MAC address
        to ensure simple connectivity for now
-       TODO: Probably not a secure way to expose device MAC Address, change it and test for Bluetooth Scan
     */
     private final String MW_MAC_ADDRESS = "E5:7A:73:82:24:CE";
 
@@ -158,10 +157,12 @@ public class MainActivity extends Activity implements ServiceConnection {
                         source.stream(new Subscriber() {
                             @Override
                             public void apply(Data data, Object... env) {
-                                Log.i("eGuard", data.value(Acceleration.class).toString());
+                                double accMag = calculateAcceleration(data);
+                                //Log.i("eGuard", data.value(Acceleration.class).toString());
+                                Log.i("eGuard", Double.toString(accMag));
                             }
                         });
-                        source.map(Function1.RSS).average((byte) 4).filter(ThresholdOutput.BINARY, 3.5f)
+                        source.map(Function1.RSS).average((byte) 1).filter(ThresholdOutput.BINARY, 2.2f)
                                 .multicast()
                                 .to().filter(Comparison.EQ, -1).stream(new Subscriber() {
                             @Override
@@ -196,5 +197,14 @@ public class MainActivity extends Activity implements ServiceConnection {
                 return null;
             }
         });
+    }
+
+    public double calculateAcceleration(Data data) {
+        double xMag = ((double) data.value(Acceleration.class).x());
+        double yMag = ((double) data.value(Acceleration.class).y());
+        double zMag = ((double) data.value(Acceleration.class).z());
+        double magnitude = Math.sqrt((Math.pow(xMag,2)) + Math.pow(yMag, 2) + Math.pow(zMag, 2));
+        return magnitude;
+
     }
 }
