@@ -5,6 +5,7 @@
 package eguard.android.hari.com.myapplication;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.ComponentName;
@@ -12,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -136,7 +138,7 @@ public class MainActivity extends Activity implements ServiceConnection {
                 // Configure the accelerometer object and stream data from MetaWear device
                 accelerometer = board.getModule(Accelerometer.class);
                 accelerometer.configure()
-                        .odr(25f)
+                        .odr(12.5f)
                         .commit();
 
                 /*
@@ -158,11 +160,11 @@ public class MainActivity extends Activity implements ServiceConnection {
                             @Override
                             public void apply(Data data, Object... env) {
                                 double accMag = calculateAcceleration(data);
-                                //Log.i("eGuard", data.value(Acceleration.class).toString());
                                 Log.i("eGuard", Double.toString(accMag));
                             }
                         });
-                        source.map(Function1.RSS).average((byte) 1).filter(ThresholdOutput.BINARY, 2.2f)
+
+                        source.map(Function1.RSS).filter(ThresholdOutput.BINARY, 1.5f)
                                 .multicast()
                                 .to().filter(Comparison.EQ, -1).stream(new Subscriber() {
                             @Override
@@ -171,14 +173,18 @@ public class MainActivity extends Activity implements ServiceConnection {
                                TODO: And raise an alert to send a message
                             */
                             public void apply(Data data, Object... env) {
-                                Log.i("eGuard", "There has been a fall");
+                         //       double accMag = calculateAcceleration(data);
+                                Log.i("eGuard", "There has been a fall: " + data.toString());
+                                sendNotification();
+                                //calculateAcceleration(data);
                                 }
                             })
                                 .to().filter(Comparison.EQ, 1).stream(new Subscriber() {
                             @Override
                             // If the user movement is normal, log a message
                             public void apply(Data data, Object... env) {
-                                Log.i("eGuard", "Normal user movement");
+                            //    double accMag = calculateAcceleration(data);
+                                Log.i("eGuard", "Normal user movement: " );
                                 }
                             })
                         .end();
@@ -199,12 +205,32 @@ public class MainActivity extends Activity implements ServiceConnection {
         });
     }
 
+    /*
+    * Calculate the magnitude of Acceleration at every moment and stream application home page
+    */
     public double calculateAcceleration(Data data) {
         double xMag = ((double) data.value(Acceleration.class).x());
         double yMag = ((double) data.value(Acceleration.class).y());
         double zMag = ((double) data.value(Acceleration.class).z());
         double magnitude = Math.sqrt((Math.pow(xMag,2)) + Math.pow(yMag, 2) + Math.pow(zMag, 2));
+        Log.i("eGuard", "Magnitude is: " + magnitude);
         return magnitude;
+
+    }
+
+    public void sendNotification() {
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.icons8_notification_50)
+                        .setContentTitle("Alert! In Danger")
+                        .setContentText("XYZ has fallen");
+
+        NotificationManager mNotificationManager =
+
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(001, mBuilder.build());
 
     }
 }
