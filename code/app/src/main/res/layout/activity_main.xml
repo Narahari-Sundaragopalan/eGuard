@@ -38,6 +38,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stop"
+        app:layout_constraintLeft_toRightOf="@id/start"
+        tools:layout_marginLeft="80dp"
         tools:layout_editor_absoluteX="149dp"
         tools:layout_editor_absoluteY="16dp" />
 
@@ -46,6 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reset"
+        app:layout_constraintLeft_toRightOf="@id/stop"
+        tools:layout_marginLeft="80dp"
         tools:layout_editor_absoluteX="279dp"
         tools:layout_editor_absoluteY="16dp" />
 

@@ -164,13 +164,13 @@ public class MainActivity extends Activity implements ServiceConnection {
                             }
                         });
 
-                        source.map(Function1.RSS).filter(ThresholdOutput.BINARY, 1.5f)
-                                .multicast()
-                                .to().filter(Comparison.EQ, -1).stream(new Subscriber() {
+                        source.map(Function1.RSS).filter(Comparison.GT, 3.5f).multicast().to().stream(new Subscriber() {
+//                        source.map(Function1.RSS).filter(ThresholdOutput.BINARY, 1.5f)
+//                                .multicast()
+//                                .to().filter(Comparison.EQ, -1).stream(new Subscriber() {
                             @Override
                             /*
                                If the user acceleration has gone beyond the threshold, log a fall message
-                               TODO: And raise an alert to send a message
                             */
                             public void apply(Data data, Object... env) {
                          //       double accMag = calculateAcceleration(data);
