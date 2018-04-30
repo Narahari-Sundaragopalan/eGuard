@@ -5,13 +5,16 @@
 package eguard.android.hari.com.myapplication;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +53,8 @@ public class MainActivity extends Activity implements ServiceConnection {
 
     // Object to start and stop collecting acceleration data
     Accelerometer accelerometer;
+
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,6 +169,7 @@ public class MainActivity extends Activity implements ServiceConnection {
                             }
                         });
 
+
                         source.map(Function1.RSS).filter(Comparison.GT, 3.5f).multicast().to().stream(new Subscriber() {
 //                        source.map(Function1.RSS).filter(ThresholdOutput.BINARY, 1.5f)
 //                                .multicast()
@@ -173,17 +179,15 @@ public class MainActivity extends Activity implements ServiceConnection {
                                If the user acceleration has gone beyond the threshold, log a fall message
                             */
                             public void apply(Data data, Object... env) {
-                         //       double accMag = calculateAcceleration(data);
                                 Log.i("eGuard", "There has been a fall: " + data.toString());
                                 sendNotification();
-                                //calculateAcceleration(data);
+                                createAlert();
                                 }
                             })
                                 .to().filter(Comparison.EQ, 1).stream(new Subscriber() {
                             @Override
                             // If the user movement is normal, log a message
                             public void apply(Data data, Object... env) {
-                            //    double accMag = calculateAcceleration(data);
                                 Log.i("eGuard", "Normal user movement: " );
                                 }
                             })
@@ -231,6 +235,28 @@ public class MainActivity extends Activity implements ServiceConnection {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         mNotificationManager.notify(001, mBuilder.build());
+
+    }
+
+    public void createAlert() {
+        Log.i("eGuard", "Alert function called");
+
+        runOnUiThread(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Alert")
+                        .setMessage("Alert has been sent, Help Arriving Soon!")
+                        .setNegativeButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
+        }));
 
     }
 }
