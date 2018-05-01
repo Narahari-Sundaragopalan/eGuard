@@ -231,7 +231,7 @@ public class MainActivity extends Activity implements ServiceConnection {
                             public void apply(Data data, Object... env) {
                                 Log.i("eGuard", "There has been a fall: " + data.toString());
                                 sendNotification();
-                                createAlert("Alert", "Alert has been sent, Help Arriving Soon!");
+                                createAlert("Emergency", "Elderly has fallen, Calling for Help!");
                                 }
                             })
                                 .to().filter(Comparison.EQ, 1).stream(new Subscriber() {
@@ -281,8 +281,8 @@ public class MainActivity extends Activity implements ServiceConnection {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.icons8_notification_50)
-                        .setContentTitle("Alert! In Danger")
-                        .setContentText("There has been a fall");
+                        .setContentTitle("Emergency Message")
+                        .setContentText("Elderly needs help. There has been a fall" + "\n" + "Sender: Elderly");
 
         NotificationManager mNotificationManager =
 
