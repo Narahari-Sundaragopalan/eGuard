@@ -1,5 +1,7 @@
 # eGuard
-Android Application which uses a MetaWear as an automatic notification system, mainly as a fall detection and alert device for elderly people. To start using the application immediately, go to the [Quick Start Guide](#quick-start-guide)
+Android Application which uses a MetaWear as an automatic notification system, mainly as a fall detection and alert device for elderly people. 
+To start using the application immediately, go to the [Quick Start Guide](#quick-start-guide)
+To download the application APK, go to [Releases](https://github.com/Narahari-Sundaragopalan/eGuard/releases)
 
 ## Table of Contents
 
@@ -133,22 +135,22 @@ Below listed are the hardware components required to run the application
 ### Installation
 Below are the instructions for installation/development setup of the application
 
-* If you are looking to use the application directly, download the ```apk``` file from here
+* If you are looking to use the application directly, download the [APK File](https://github.com/Narahari-Sundaragopalan/eGuard/releases)
 * Install the downloaded apk file to your device 
     * By either using a USB cable to transfer the apk to your device
-    * You can also open the ```apk link``` from your android device and download it directly to your device
+    * You can also open the [APK Link](https://github.com/Narahari-Sundaragopalan/eGuard/releases) from your android device and download it directly to your device
 * Next go to Getting Started section on how to use the application
 * If you are a developer looking to extend or debug the code, clone the git repository from the command prompt, using the below command
 ```
 git clone https://github.com/Narahari-Sundaragopalan/eGuard.git
 ```
-* Otherwise, you can also download the zip version of the repository from GitHub and unzip it to get the contents
+* Otherwise, you can also download the [Source Code](https://github.com/Narahari-Sundaragopalan/eGuard/releases) and unzip it to get the contents
 * Once the code is downloaded, open Android Studio on your system
 * Go to ```File > Open``` option, and select the folder you cloned/downloaded in the step above
 * The android project will be imported by Android Studio and synced
 * At this point, you can connect your Android device to the system using a USB cable
-* At the right top, click on the toolbar icon to build the project. This will build the necessary source files from the gradle file
-* Once the project is successfully built, without any errors, click on the play icon at the right top, to run the application
+* At the right top, click on the Make Project ![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/Build.png) to build the project. This will build the necessary source files from the gradle file
+* Once the project is successfully built, without any errors, click on the Run App ![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/Run.png) at the right top, to run the application
 * Android Studio will recognize the connected android device and list all the connected devices (if more than one is connected)
 * Choose the appropriate device of your choice to run the application
 * The application will be installed on your android device and then will be run on the device
@@ -169,22 +171,22 @@ Below are the instructions on how to use the application
   * Make sure your android device and metawear device are nearby with bluetooth on your android device turned on
   * Use the [Metabase](https://play.google.com/store/apps/details?id=com.mbientlab.metawear.metabase&hl=en) application (developed by MbientLab) to update the firmware on the metawear device and then      reconnect from the application
   * Use the Metabase application to reset the metawear device and then try to reconnect from the application
-* Once connected, there are 3 buttons on the application, ```On```, ```Off``` and ```Reset```
-  * The ```On``` button provides the user with the option on when they want to start tracking their movement and      acceleration
-  * Once pressed, the ```On``` button starts tracking the user acceleration and streams acceleration to the           application
+* Once connected, there are 3 buttons on the application, ```Enable Fall Detection```, ```Disable Fall Detection``` and ```Reset Device```
+  * The ```Enable Fall Detection``` button provides the user with the option on when they want to start tracking their movement and acceleration
+  * Once pressed, the ```Enable Fall Detection``` button starts tracking the user acceleration and streams acceleration to the application
   * This can be observed in the graph representing the acceleration across the 3 axes of the accelerometer
-  * The ```On``` button ensures the user movement is continuously tracked and checks if the movements are normal or fall scenarios
+  * The ```Enable Fall Detection``` button ensures the user movement is continuously tracked and checks if the movements are normal or fall scenarios
   * Based on the sudden increase/decrease in the user acceleration, the application determines if the user is safe or if the user has encountered a fall
   * In case of a fall scenario, the application sends a notification indicating the user has fallen
   * The application also creates an alert to indicate that the notification was sent out succesfully
   * For all other scenarios for user movements, the application continues to silently monitor the user acceleration   and movements
   * For more information on the various scenarios considered, please check [Data Sources](https://github.com/Narahari-Sundaragopalan/eGuard/tree/master/data-source)
 
-  * The ```Off``` button provides the user an option to turn off the tracking and monitoring process
+  * The ```Disable Fall Detection``` button provides the user an option to turn off the tracking and monitoring process
   * This option provides a way to save phone resources and metawear device resources
   * However, it is advised the user turns the feature off, only when he/she is in an appropriate environment,surrounded by people who can provide immediate help in case of an emergency
 
-  * The ```Reset``` button provides a way to delete the data stored and trakced by the metawear device
+  * The ```Reset Device``` button provides a way to delete the data stored and trakced by the metawear device
   * If at any point of time, the user feels the need to reset the metawear device or requires a fresh setup, this setting could be used
   * It might also be applicable to reset the board when the device is changing hands and used by a different person than before
 
