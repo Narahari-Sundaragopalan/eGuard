@@ -19,11 +19,11 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="14dp"
         android:src="@drawable/fall_detection_icon"
         tools:layout_editor_absoluteX="92dp"
         tools:layout_editor_absoluteY="30dp" />
@@ -34,30 +34,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView2"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="83dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="28dp"
         android:text="On"
         app:layout_constraintBottom_toBottomOf="@id/imageView2"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="324dp" />
-
-    <!--<Button-->
-        <!--android:id="@+id/stop"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="32dp"-->
-        <!--android:text="Stop"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/start"-->
-        <!--tools:layout_editor_absoluteX="16dp" />-->
-
-    <!--<Button-->
-        <!--android:id="@+id/reset"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:text="Reset"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/stop"-->
-        <!--tools:layout_editor_absoluteX="194dp" />-->
 
     <Button
         android:id="@+id/stop"
@@ -69,25 +51,23 @@
         android:text="Off"
         app:layout_constraintLeft_toRightOf="@id/start"
         tools:layout_editor_absoluteY="324dp" />
-        <!--app:layout_constraintBottom_toBottomOf="@id/imageView2"-->
-        tools:layout_marginLeft="80dp"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/start"
-        android:layout_alignBottom="@+id/start"
+        android:layout_alignBaseline="@+id/stop"
+        android:layout_alignBottom="@+id/stop"
         android:layout_alignParentEnd="true"
         android:text="Reset"
         app:layout_constraintLeft_toRightOf="@id/stop"
         tools:layout_editor_absoluteY="324dp" />
-        <!--app:layout_constraintBottom_toBottomOf="@id/imageView2"-->
-        tools:layout_marginLeft="80dp"
-        tools:layout_editor_absoluteX="279dp"
-        tools:layout_editor_absoluteY="16dp" />
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="400dp"
+        android:layout_height="200dip"
+        android:id="@+id/graph"
+        android:layout_below="@+id/reset" />
 
 
 
