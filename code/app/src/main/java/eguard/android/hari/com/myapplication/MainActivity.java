@@ -221,7 +221,7 @@ public class MainActivity extends Activity implements ServiceConnection {
                         });
 
 
-                        source.map(Function1.RSS).filter(Comparison.GT, 2f).multicast().to().stream(new Subscriber() {
+                        source.map(Function1.RSS).filter(Comparison.GT, 3.5f).multicast().to().stream(new Subscriber() {
                             @Override
                             /*
                                If the user acceleration has gone beyond the threshold, log a fall message
