@@ -149,8 +149,8 @@ git clone https://github.com/Narahari-Sundaragopalan/eGuard.git
 * Go to ```File > Open``` option, and select the folder you cloned/downloaded in the step above
 * The android project will be imported by Android Studio and synced
 * At this point, you can connect your Android device to the system using a USB cable
-* At the right top, click on the Make Project ![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/Build.png) to build the project. This will build the necessary source files from the gradle file
-* Once the project is successfully built, without any errors, click on the Run App ![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/Run.png) at the right top, to run the application
+* At the right top, click on the Make Project icon ![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/Build.png) to build the project. This will build the necessary source files from the gradle file
+* Once the project is successfully built, without any errors, click on the Run app icon ![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/Run.png) at the right top, to run the application
 * Android Studio will recognize the connected android device and list all the connected devices (if more than one is connected)
 * Choose the appropriate device of your choice to run the application
 * The application will be installed on your android device and then will be run on the device
