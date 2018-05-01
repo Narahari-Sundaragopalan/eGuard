@@ -29,7 +29,7 @@ eGuard provides a practical solution to this issue. Although there are many medi
 * Identify and test the security vulnerabilities of the application
 
 
-## Merits
+### Merits
 
 * eGuard is fall alert medical device, which will automatically call for help in case of an emergency
 

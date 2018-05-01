@@ -6,6 +6,7 @@ package eguard.android.hari.com.myapplication;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.NotificationManager;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
@@ -65,6 +66,7 @@ public class MainActivity extends Activity implements ServiceConnection {
 
     // Object to create an alert dialog when a fall is detected
     AlertDialog.Builder builder;
+    AlertDialog alert;
 
     // Variables to store data from 3-axes of accelerometer of MetaWear
     private LineGraphSeries<DataPoint> seriesX;
@@ -185,6 +187,8 @@ public class MainActivity extends Activity implements ServiceConnection {
             public Task<Route> then(Task<Void> task) throws Exception {
 
                 Log.i("eGuard", "Connected to " + macAddr);
+                // Send confirmation that the device was connected
+                createAlert("eGuard", "Connected to device successfully");
 
                 // Configure the accelerometer object and stream data from MetaWear device
                 accelerometer = board.getModule(Accelerometer.class);
@@ -218,9 +222,6 @@ public class MainActivity extends Activity implements ServiceConnection {
 
 
                         source.map(Function1.RSS).filter(Comparison.GT, 2f).multicast().to().stream(new Subscriber() {
-//                        source.map(Function1.RSS).filter(ThresholdOutput.BINARY, 1.5f)
-//                                .multicast()
-//                                .to().filter(Comparison.EQ, -1).stream(new Subscriber() {
                             @Override
                             /*
                                If the user acceleration has gone beyond the threshold, log a fall message
@@ -230,7 +231,7 @@ public class MainActivity extends Activity implements ServiceConnection {
                             public void apply(Data data, Object... env) {
                                 Log.i("eGuard", "There has been a fall: " + data.toString());
                                 sendNotification();
-                                createAlert();
+                                createAlert("Alert", "Alert has been sent, Help Arriving Soon!");
                                 }
                             })
                                 .to().filter(Comparison.EQ, 1).stream(new Subscriber() {
@@ -294,22 +295,25 @@ public class MainActivity extends Activity implements ServiceConnection {
     /*
     * This function creates an alert pop up once a notification is sent
     */
-    public void createAlert() {
+    public void createAlert(String title, String message) {
 
         runOnUiThread(new Thread(new Runnable() {
             @Override
             public void run() {
-                builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Alert")
-                        .setMessage("Alert has been sent, Help Arriving Soon!")
-                        .setNegativeButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .show();
+                if(alert != null && alert.isShowing()) {
+                    // If there is an alert dialog box already showing, remove it before creating a new one
+                    alert.dismiss();
+                }
+                alert = new AlertDialog.Builder(MainActivity.this).create();
+                alert.setTitle(title);
+                alert.setMessage(message);
+                alert.setButton(Dialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        alert.dismiss();
+                    }
+                });
+                alert.show();
             }
         }));
 
