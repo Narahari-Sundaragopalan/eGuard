@@ -1,6 +1,6 @@
 # eGuard
 Android Application which uses a MetaWear as an automatic notification system, mainly as a fall detection and alert device for elderly people. 
-To start using the application immediately, go to the [Quick Start Guide](#quick-start-guide)
+To start using the application immediately, go to the [Quick Start Guide](#quick-start-guide).
 To download the application APK, go to [Releases](https://github.com/Narahari-Sundaragopalan/eGuard/releases)
 
 ## Table of Contents
@@ -85,3 +85,5 @@ Below are the instructions on how to use the application
   * It might also be applicable to reset the board when the device is changing hands and used by a different person than before
 
 * User can exit the application, by simply clicking the ```Back``` button on their android device or removing the application from the recently used applications taskbar in android.
+
+[Go to Top](#eguard)
