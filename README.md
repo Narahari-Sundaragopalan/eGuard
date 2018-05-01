@@ -5,7 +5,7 @@ To download the application APK, go to [Releases](https://github.com/Narahari-Su
 
 ## Table of Contents
 
-[Executive Summary](#executive-summary) | [Quick Start Guide](#quick-start-guide) | [Project Details](https://github.com/Narahari-Sundaragopalan/eGuard/tree/master/docs) | [Releases](https://github.com/Narahari-Sundaragopalan/eGuard/releases)
+[Executive Summary](#executive-summary) | [Quick Start Guide](#quick-start-guide) | [Project Details](https://github.com/Narahari-Sundaragopalan/eGuard/tree/master/docs) | [Releases](https://github.com/Narahari-Sundaragopalan/eGuard/releases) | [Screenshots](#application-screenshots)
 
 ## Executive Summary
 
@@ -85,5 +85,21 @@ Below are the instructions on how to use the application
   * It might also be applicable to reset the board when the device is changing hands and used by a different person than before
 
 * User can exit the application, by simply clicking the ```Back``` button on their android device or removing the application from the recently used applications taskbar in android.
+
+## Application Screenshots
+
+Below are few screenshots of the working application
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/SS1.png)
+
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/SS2.png)
+
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/SS3.png)
+
+
+![Tooltip for visually disabled](https://github.com/Narahari-Sundaragopalan/eGuard/blob/master/images/SS4.png)
+
 
 [Go to Top](#eguard)
