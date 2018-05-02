@@ -24,7 +24,8 @@ Below listed are the hardware components required to run the application
 
 ### Software Requirements
 
-* Android Studio IDE (Download from [here](https://developer.android.com/studio/))
+* eGuard application APK [Download from here](https://github.com/Narahari-Sundaragopalan/eGuard/releases)
+* Android Studio IDE (Optional for Developers) (Download from [here](https://developer.android.com/studio/))
 
 ### Installation
 Below are the instructions for installation/development setup of the application
@@ -60,7 +61,7 @@ Below are the instructions on how to use the application
 * Make sure you have your phone and metawear device nearby
 * The metawear device can either be pinned to your shoulder or worn like a pendant around your neck
 * Open the application, and let it search and connect to the metawear device
-* Once the device is connected an alert dialog will pop up to confirm the connection
+* Once the device is connected an alert dialog will pop up to confirm the connection. Click on "OK"
 * If there is an issue with connecting to the metawear device, try any of the following steps
   * Make sure your android device and metawear device are nearby with bluetooth on your android device turned on
   * Use the [Metabase](https://play.google.com/store/apps/details?id=com.mbientlab.metawear.metabase&hl=en) application (developed by MbientLab) to update the firmware on the metawear device and then      reconnect from the application

@@ -103,6 +103,9 @@ public class MainActivity extends Activity implements ServiceConnection {
         graph.setTitleColor(Color.BLACK);
         graph.getLegendRenderer().setVisible(true);
         graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.BOTTOM);
+        seriesX.setTitle("X-Axis");
+        seriesY.setTitle("Y-Axis");
+        seriesZ.setTitle("Z-Axis");
 
         // Set Axis titles
         GridLabelRenderer gridLabel = graph.getGridLabelRenderer();
@@ -221,7 +224,7 @@ public class MainActivity extends Activity implements ServiceConnection {
                         });
 
 
-                        source.map(Function1.RSS).filter(Comparison.GT, 3.5f).multicast().to().stream(new Subscriber() {
+                        source.map(Function1.RSS).filter(Comparison.GT, 2.5f).multicast().to().stream(new Subscriber() {
                             @Override
                             /*
                                If the user acceleration has gone beyond the threshold, log a fall message
